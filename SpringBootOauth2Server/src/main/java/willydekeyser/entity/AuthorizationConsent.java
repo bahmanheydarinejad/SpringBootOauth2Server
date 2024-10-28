@@ -3,11 +3,7 @@ package willydekeyser.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,8 +17,9 @@ import lombok.NoArgsConstructor;
 public class AuthorizationConsent {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String registeredClientId;
-	@Id
+	@Column(unique = true)
 	private String principalName;
 	@Column(length = 1000)
 	private String authorities;

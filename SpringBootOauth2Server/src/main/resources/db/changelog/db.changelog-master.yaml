@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - include:
+      file: creation/1-authorities.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: creation/2-authorization.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: creation/3-authorizationConsent.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: creation/4-client.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: creation/5-users.yaml
+      relativeToChangelogFile: true

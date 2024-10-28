@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 3
+      author: user
+      changes:
+        - createTable:
+            tableName: authorizationConsent
+            columns:
+              - column:
+                  name: registeredClientId
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: principalName
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: authorities
+                  type: VARCHAR(1000)

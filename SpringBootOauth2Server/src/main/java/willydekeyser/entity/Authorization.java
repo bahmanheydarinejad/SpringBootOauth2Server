@@ -2,11 +2,7 @@ package willydekeyser.entity;
 
 import java.time.Instant;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,8 +15,9 @@ import lombok.NoArgsConstructor;
 public class Authorization {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column
-	private String id;
+	private Integer id;
 	private String registeredClientId;
 	private String principalName;
 	private String authorizationGrantType;

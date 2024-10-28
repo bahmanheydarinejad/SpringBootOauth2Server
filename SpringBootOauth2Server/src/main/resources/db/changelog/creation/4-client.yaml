@@ -1,0 +1,46 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: user
+      changes:
+        - createTable:
+            tableName: client
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(255)
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: clientId
+                  type: VARCHAR(255)
+              - column:
+                  name: clientIdIssuedAt
+                  type: TIMESTAMP
+              - column:
+                  name: clientSecret
+                  type: VARCHAR(255)
+              - column:
+                  name: clientSecretExpiresAt
+                  type: TIMESTAMP
+              - column:
+                  name: clientName
+                  type: VARCHAR(255)
+              - column:
+                  name: clientAuthenticationMethods
+                  type: VARCHAR(1000)
+              - column:
+                  name: authorizationGrantTypes
+                  type: VARCHAR(1000)
+              - column:
+                  name: redirectUris
+                  type: VARCHAR(1000)
+              - column:
+                  name: scopes
+                  type: VARCHAR(1000)
+              - column:
+                  name: clientSettings
+                  type: VARCHAR(2000)
+              - column:
+                  name: tokenSettings
+                  type: VARCHAR(2000)

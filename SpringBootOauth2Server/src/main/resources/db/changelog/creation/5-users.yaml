@@ -1,0 +1,62 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: user
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: INT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: username
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: password
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: accountNonExpired
+                  type: BOOLEAN
+              - column:
+                  name: accountNonLocked
+                  type: BOOLEAN
+              - column:
+                  name: credentialsNonExpired
+                  type: BOOLEAN
+              - column:
+                  name: enabled
+                  type: BOOLEAN
+        - createTable:
+            tableName: users_authorities
+            columns:
+              - column:
+                  name: USERS_ID
+                  type: INT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: AUTHORITIES_ID
+                  type: INT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            constraintName: users_authorities_users_id
+            baseTableName: users_authorities
+            baseColumnNames: USERS_ID
+            referencedTableName: users
+            referencedColumnNames: id
+        - addForeignKeyConstraint:
+            constraintName: users_authorities_authorities_id
+            baseTableName: users_authorities
+            baseColumnNames: AUTHORITIES_ID
+            referencedTableName: authorities
+            referencedColumnNames: id
