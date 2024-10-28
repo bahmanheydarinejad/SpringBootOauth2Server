@@ -13,16 +13,16 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: registeredClientId
+                  name: registered_client_id
                   type: VARCHAR(255)
               - column:
-                  name: principalName
+                  name: principal_name
                   type: VARCHAR(255)
               - column:
-                  name: authorizationGrantType
+                  name: authorization_grant_type
                   type: VARCHAR(255)
               - column:
-                  name: authorizedScopes
+                  name: authorized_scopes
                   type: VARCHAR(1000)
               - column:
                   name: attributes
@@ -31,59 +31,59 @@ databaseChangeLog:
                   name: state
                   type: VARCHAR(500)
               - column:
-                  name: authorizationCodeValue
+                  name: authorization_code_value
                   type: CLOB
               - column:
-                  name: authorizationCodeIssuedAt
+                  name: authorization_code_issued_at
                   type: TIMESTAMP
               - column:
-                  name: authorizationCodeExpiresAt
+                  name: authorization_code_expires_at
                   type: TIMESTAMP
               - column:
-                  name: authorizationCodeMetadata
+                  name: authorization_code_metadata
                   type: VARCHAR(255)
               - column:
-                  name: accessTokenValue
+                  name: access_token_value
                   type: CLOB
               - column:
-                  name: accessTokenIssuedAt
+                  name: access_token_issued_at
                   type: TIMESTAMP
               - column:
-                  name: accessTokenExpiresAt
+                  name: access_token_expires_at
                   type: TIMESTAMP
               - column:
-                  name: accessTokenMetadata
+                  name: access_token_metadata
                   type: VARCHAR(2000)
               - column:
-                  name: accessTokenType
+                  name: access_token_type
                   type: VARCHAR(255)
               - column:
-                  name: accessTokenScopes
+                  name: access_token_scopes
                   type: VARCHAR(1000)
               - column:
-                  name: refreshTokenValue
+                  name: refresh_token_value
                   type: CLOB
               - column:
-                  name: refreshTokenIssuedAt
+                  name: refresh_token_issued_at
                   type: TIMESTAMP
               - column:
-                  name: refreshTokenExpiresAt
+                  name: refresh_token_expires_at
                   type: TIMESTAMP
               - column:
-                  name: refreshTokenMetadata
+                  name: refresh_token_metadata
                   type: VARCHAR(2000)
               - column:
-                  name: oidcIdTokenValue
+                  name: oidc_id_token_value
                   type: CLOB
               - column:
-                  name: oidcIdTokenIssuedAt
+                  name: oidc_id_token_issued_at
                   type: TIMESTAMP
               - column:
-                  name: oidcIdTokenExpiresAt
+                  name: oidc_id_token_expires_at
                   type: TIMESTAMP
               - column:
-                  name: oidcIdTokenMetadata
+                  name: oidc_id_token_metadata
                   type: VARCHAR(2000)
               - column:
-                  name: oidcIdTokenClaims
+                  name: oidc_id_token_claims
                   type: CLOB

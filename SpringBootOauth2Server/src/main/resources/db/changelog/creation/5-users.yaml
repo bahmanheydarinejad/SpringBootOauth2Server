@@ -24,13 +24,13 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: accountNonExpired
+                  name: account_non_expired
                   type: BOOLEAN
               - column:
-                  name: accountNonLocked
+                  name: account_non_locked
                   type: BOOLEAN
               - column:
-                  name: credentialsNonExpired
+                  name: credentials_non_expired
                   type: BOOLEAN
               - column:
                   name: enabled

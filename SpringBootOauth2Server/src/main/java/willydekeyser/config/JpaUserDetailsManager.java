@@ -1,7 +1,6 @@
 package willydekeyser.config;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,8 +10,7 @@ import org.springframework.stereotype.Service;
 import willydekeyser.entity.SecurityUser;
 import willydekeyser.repository.UserRepository;
 
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -22,14 +20,18 @@ public class JpaUserDetailsManager implements UserDetailsManager {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        SecurityUser user = userRepository.findByUsername(username);
-        if (!user.getUsername().equals(username)) {
-            throw new UsernameNotFoundException("Access Denied");
-        }
-        Collection<GrantedAuthority> authoriies = new HashSet<>();
-        user.getAuthorities().forEach(auth -> authoriies.add(new SimpleGrantedAuthority(auth.getAuthority())));
-        return new User(user.getUsername(), user.getPassword(), user.getEnabled(), user.getAccountNonExpired(),
-                user.getCredentialsNonExpired(), user.getAccountNonLocked(), authoriies);
+        SecurityUser user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Access Denied"));
+        return new User(
+                user.getUsername(),
+                user.getPassword(),
+                user.getEnabled(),
+                user.getAccountNonExpired(),
+                user.getCredentialsNonExpired(),
+                user.getAccountNonLocked(),
+                user.getAuthorities().stream()
+                        .map(auth -> new SimpleGrantedAuthority(auth.getAuthority()))
+                        .collect(Collectors.toList())
+        );
     }
 
     @Override
@@ -50,8 +52,7 @@ public class JpaUserDetailsManager implements UserDetailsManager {
 
     @Override
     public boolean userExists(String username) {
-        SecurityUser user = userRepository.findByUsername(username);
-        return user.getUsername().equals(username);
+        return userRepository.existsByUsername(username);
     }
 
 }

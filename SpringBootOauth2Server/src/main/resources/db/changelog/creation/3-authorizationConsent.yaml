@@ -4,15 +4,15 @@ databaseChangeLog:
       author: user
       changes:
         - createTable:
-            tableName: authorizationConsent
+            tableName: authorization_consent
             columns:
               - column:
-                  name: registeredClientId
+                  name: registered_client_id
                   type: VARCHAR(255)
                   constraints:
                     primaryKey: true
               - column:
-                  name: principalName
+                  name: principal_name
                   type: VARCHAR(255)
                   constraints:
                     nullable: false
