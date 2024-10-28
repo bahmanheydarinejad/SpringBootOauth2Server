@@ -14,3 +14,6 @@ databaseChangeLog:
   - include:
       file: creation/5-users.yaml
       relativeToChangelogFile: true
+  - include:
+      file: data/initial_data.sql
+      relativeToChangelogFile: true

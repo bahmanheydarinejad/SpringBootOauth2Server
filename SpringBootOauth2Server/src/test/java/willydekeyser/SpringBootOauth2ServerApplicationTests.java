@@ -1,13 +1,15 @@
 package willydekeyser;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-@SpringBootTest
 class SpringBootOauth2ServerApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void BCryptPasswordEncoder() {
+        System.out.println(new BCryptPasswordEncoder().encode("User"));
+        System.out.println(new BCryptPasswordEncoder().encode("Admin"));
+        System.out.println(new BCryptPasswordEncoder().encode("Developer"));
+    }
 
 }
